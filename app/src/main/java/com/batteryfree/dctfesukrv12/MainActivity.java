@@ -1,7 +1,6 @@
 package com.batteryfree.dctfesukrv12;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -31,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         serialNumberDevice = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-
         creteJSONData();
     }
 
@@ -77,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
             jsonOutput.put("d1", "");
             jsonOutput.put("nextForm", 0);
         } catch (Exception e) {
-            e.printStackTrace(); // лучше логировать ошибку
+            e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Блокируем кнопку "Назад"
+        super.onBackPressed();
     }
 }

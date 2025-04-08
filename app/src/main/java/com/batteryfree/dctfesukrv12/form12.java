@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -93,6 +94,30 @@ public class form12 extends AppCompatActivity {
                 if (hasFocus) {
                     f12_editText2.selectAll();
                 }
+            }
+        });
+
+        f12_editText1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f12_editText1.requestFocus();
+                    f12_editText1.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        f12_editText2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f12_editText2.requestFocus();
+                    f12_editText2.selectAll();
+                    return true;
+                }
+                return false;
             }
         });
 

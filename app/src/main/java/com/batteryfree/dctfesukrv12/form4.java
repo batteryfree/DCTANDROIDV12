@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -104,6 +105,53 @@ public class form4 extends AppCompatActivity {
                 if (hasFocus) {
                     f4_editText4.selectAll();
                 }
+            }
+        });
+
+        f4_editText1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f4_editText1.requestFocus();
+                    f4_editText1.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        f4_editText2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f4_editText2.requestFocus();
+                    f4_editText2.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
+        f4_editText3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f4_editText3.requestFocus();
+                    f4_editText3.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        f4_editText4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f4_editText4.requestFocus();
+                    f4_editText4.selectAll();
+                    return true;
+                }
+                return false;
             }
         });
 

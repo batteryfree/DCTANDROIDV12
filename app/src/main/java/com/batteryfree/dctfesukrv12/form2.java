@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.MotionEvent;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,6 +34,8 @@ public class form2 extends AppCompatActivity {
     public TextView f2_l3_1;
     private ProgressDialog progressDialog;
     private boolean isRequestCancelled = false;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,17 +111,29 @@ public class form2 extends AppCompatActivity {
             }
         });
 
-//        f2_editText1.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
-//                    f2_editText1.requestFocus();
-//                    f2_editText1.selectAll();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+        f2_editText1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f2_editText1.requestFocus();
+                    f2_editText1.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        f2_editText2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f2_editText2.requestFocus();
+                    f2_editText2.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
 
 
         f2_editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -86,8 +87,17 @@ public class form6 extends AppCompatActivity {
                 }
             }
         });
-
-
+        f6_editText1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
+                    f6_editText1.requestFocus();
+                    f6_editText1.selectAll();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void showProgressDialogWithCancelOption() {
