@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">DCTFESUKRv12</string>
+    <string name="btn_c_f12">Витрата</string>
+    <string name="btn_c_f7">Прихід/Інветарізація</string>
+    <string name="btn_c_m2">КПП</string>
+    <string name="btn_c_f5">Відділ якості</string>
+    <string name="l1_nd">НОМЕР ДОКУМЕНТУ</string>
+    <string name="l2_k">КОМІРНИК</string>
+    <string name="bc">Введіть штрих-код</string>
+    <string name="btn_dback">На головну</string>
+    <string name="bc_l">ШК етикетки</string>
+    <string name="name_tov">Найменування</string>
+    <string name="count_tov_doc">Усього палет за документом</string>
+    <string name="count">Кількість</string>
+    <string name="zero">0</string>
+    <string name="place">Місце</string>
+    <string name="exp">Термін придатності</string>
+    <string name="palet">Усього палет за документом</string>
+    <string name="worker">Співробітник</string>
+    <string name="bc_container">ШК контейнера</string>
+    <string name="btn_c_f10">Відкрити лист завантаження</string>
+    <string name="btn_c_f13">Закрити лист завантаження</string>
+    <string name="btn_c_f8">Перевірка відвантаження</string>
+    <string name="loading_sheet">ЛИСТ ЗАВАНТАЖЕННЯ</string>
+    <string name="controller">КОНТРОЛЕР</string>
+    <string name="gate">БРАМА</string>
+    <string name="real">РЕАЛІЗАЦІЯ</string>
+    <string name="contra">Контрагент</string>
+    <string name="submit">Прийняти</string>
+</resources>
