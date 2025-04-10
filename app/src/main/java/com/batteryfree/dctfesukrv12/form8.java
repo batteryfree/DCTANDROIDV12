@@ -54,6 +54,9 @@ public class form8 extends AppCompatActivity {
 
         f8_editText1 = findViewById(R.id.f8_editText1);
         f8_editText2 = findViewById(R.id.f8_editText2);
+        f8_editText1.setShowSoftInputOnFocus(false);
+        f8_editText2.setShowSoftInputOnFocus(false);
+
         f8_editText1.requestFocus();
 //        f8_editText1.setInputType(InputType.TYPE_NULL);
 //        f8_editText2.setInputType(InputType.TYPE_NULL);
@@ -118,7 +121,6 @@ public class form8 extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     public void startMenu1(View v) {

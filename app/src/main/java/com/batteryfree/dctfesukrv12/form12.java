@@ -55,6 +55,9 @@ public class form12 extends AppCompatActivity {
 
         f12_editText1 = findViewById(R.id.f12_editText1);
         f12_editText2 = findViewById(R.id.f12_editText2);
+        f12_editText1.setShowSoftInputOnFocus(false);
+        f12_editText2.setShowSoftInputOnFocus(false);
+
         f12_editText1.requestFocus();
 
 //        f12_editText1.setInputType(InputType.TYPE_NULL);
@@ -74,7 +77,7 @@ public class form12 extends AppCompatActivity {
                     showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
                     sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
                     return true;
-                                   }
+                }
                 return false;
             }
         });

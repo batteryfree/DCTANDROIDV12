@@ -57,6 +57,10 @@ public class form10 extends AppCompatActivity {
         f10_editText1 = findViewById(R.id.f10_editText1);
         f10_editText2 = findViewById(R.id.f10_editText2);
         f10_editText3 = findViewById(R.id.f10_editText3);
+        f10_editText1.setShowSoftInputOnFocus(false);
+        f10_editText2.setShowSoftInputOnFocus(false);
+        f10_editText3.setShowSoftInputOnFocus(false);
+
         f10_editText1.requestFocus();
 
 //        f10_editText1.setInputType(InputType.TYPE_NULL);
@@ -132,6 +136,7 @@ public class form10 extends AppCompatActivity {
                 return false;
             }
         });
+
         f10_editText3.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -143,7 +148,6 @@ public class form10 extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     public void startMenu1(View v) {
@@ -250,5 +254,4 @@ public class form10 extends AppCompatActivity {
             }
         }).start();
     }
-
 }

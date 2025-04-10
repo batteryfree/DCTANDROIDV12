@@ -59,6 +59,8 @@ public class form9 extends AppCompatActivity {
         } catch (Exception e){}
 
         f9_editText1 = findViewById(R.id.f9_editText1);
+        f9_editText1.setShowSoftInputOnFocus(false);
+
         f9_editText1.requestFocus();
         f9_l2_1 = findViewById(R.id.f9_l2_1);
         f9_l3_1 = findViewById(R.id.f9_l3_1);
@@ -100,6 +102,7 @@ public class form9 extends AppCompatActivity {
                 }
             }
         });
+
         f9_editText1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -111,7 +114,6 @@ public class form9 extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     private void showProgressDialogWithCancelOption() {

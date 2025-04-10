@@ -9,19 +9,18 @@
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:backgroundTint="#16331A"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:backgroundTint="#16331A"
         android:contentDescription="@string/btn_dback"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:onClick="startMenu1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert"
-        tools:ignore="ImageContrastCheck"
-        android:focusable="false"
-        android:focusableInTouchMode="false"/>
+        tools:ignore="ImageContrastCheck" />
 
 
     <TextView
@@ -32,6 +31,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="@string/loading_sheet"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
@@ -48,6 +48,7 @@
         android:hint="@string/bc"
         android:inputType="text"
         android:minHeight="48dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/f11_l1"
@@ -55,11 +56,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="19dp"
+        android:layout_width="240dp"
+        android:layout_height="43dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="8dp"
         android:text="КПП(Форма10)"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"

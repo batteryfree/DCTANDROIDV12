@@ -54,6 +54,8 @@ public class form6 extends AppCompatActivity {
         } catch (Exception e){}
 
         f6_editText1 = findViewById(R.id.f6_editText1);
+        f6_editText1.setShowSoftInputOnFocus(false);
+
         f6_editText1.requestFocus();
 //        f6_editText1.setInputType(InputType.TYPE_NULL);
 
@@ -79,6 +81,7 @@ public class form6 extends AppCompatActivity {
                 return false;
             }
         });
+
         f6_editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -87,6 +90,7 @@ public class form6 extends AppCompatActivity {
                 }
             }
         });
+
         f6_editText1.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -226,7 +230,7 @@ public class form6 extends AppCompatActivity {
             jsonOutput.put("p1", "");
         } catch (Exception e) {}
 
-       if (nextForm == 2) {
+        if (nextForm == 2) {
             intent = new Intent(this, form2.class);
         }
 

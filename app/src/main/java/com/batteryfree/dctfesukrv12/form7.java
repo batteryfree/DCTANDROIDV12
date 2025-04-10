@@ -55,6 +55,9 @@ public class form7 extends AppCompatActivity {
 
         f7_editText1 = findViewById(R.id.f7_editText1);
         f7_editText2 = findViewById(R.id.f7_editText2);
+        f7_editText1.setShowSoftInputOnFocus(false);
+        f7_editText2.setShowSoftInputOnFocus(false);
+
         f7_editText1.requestFocus();
 //        f7_editText1.setInputType(InputType.TYPE_NULL);
 //        f7_editText2.setInputType(InputType.TYPE_NULL);

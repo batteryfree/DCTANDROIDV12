@@ -35,8 +35,6 @@ public class form2 extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private boolean isRequestCancelled = false;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +58,8 @@ public class form2 extends AppCompatActivity {
 
         f2_editText1 = findViewById(R.id.f2_editText1);
         f2_editText2 = findViewById(R.id.f2_editText2);
+        f2_editText1.setShowSoftInputOnFocus(false);
+        f2_editText2.setShowSoftInputOnFocus(false);
 
         f2_editText1.requestFocus();
 //        f2_editText1.setInputType(InputType.TYPE_NULL);
@@ -68,7 +68,7 @@ public class form2 extends AppCompatActivity {
         f2_l3_1 = findViewById(R.id.f2_l3_1);
 
 
-            f2_editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        f2_editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
 
             @Override
@@ -342,5 +342,4 @@ public class form2 extends AppCompatActivity {
         intent.putExtra("jsonOutput", jsonOutput.toString());
         startActivity(intent);
     }
-
 }

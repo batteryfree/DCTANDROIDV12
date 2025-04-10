@@ -53,6 +53,8 @@ public class form11 extends AppCompatActivity {
         } catch (Exception e){}
 
         f11_editText1 = findViewById(R.id.f11_editText1);
+        f11_editText1.setShowSoftInputOnFocus(false);
+
         f11_editText1.requestFocus();
 //        f11_editText1.setInputType(InputType.TYPE_NULL);
 
@@ -74,6 +76,7 @@ public class form11 extends AppCompatActivity {
                 return false;
             }
         });
+
         f11_editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -94,7 +97,6 @@ public class form11 extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     public void startMenu1(View v) {

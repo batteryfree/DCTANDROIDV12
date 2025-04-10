@@ -49,12 +49,15 @@ public class form13 extends AppCompatActivity {
 
         try {
             jsonOutput = new JSONObject(_jsonOutput);
-            jsonOutput.put("form", 10);
-            jsonOutput.put("nextForm", 10);
+            jsonOutput.put("form", 13);
+            jsonOutput.put("nextForm", 13);
         } catch (Exception e){}
 
         f13_editText1 = findViewById(R.id.f13_editText1);
         f13_editText2 = findViewById(R.id.f13_editText2);
+        f13_editText1.setShowSoftInputOnFocus(false);
+        f13_editText2.setShowSoftInputOnFocus(false);
+
         f13_editText1.requestFocus();
 
 //        f13_editText1.setInputType(InputType.TYPE_NULL);

@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.ScrollView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -37,12 +38,14 @@ public class form4 extends AppCompatActivity {
     public TextView f4_l3_1;
     private ProgressDialog progressDialog;
     private boolean isRequestCancelled = false;
+    private ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_form4);
+        scrollView = findViewById(R.id.scrollView);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -67,6 +70,10 @@ public class form4 extends AppCompatActivity {
 //        f4_editText2.setInputType(InputType.TYPE_NULL);
 //        f4_editText3.setInputType(InputType.TYPE_NULL);
 //        f4_editText1.setInputType(InputType.TYPE_NULL);
+        f4_editText1.setShowSoftInputOnFocus(false);
+        f4_editText2.setShowSoftInputOnFocus(false);
+        f4_editText3.setShowSoftInputOnFocus(false);
+        f4_editText4.setShowSoftInputOnFocus(false);
 
         f4_editText1.requestFocus();
         f4_l2_1 = findViewById(R.id.f4_l2_1);
@@ -76,6 +83,7 @@ public class form4 extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
+                    scrollView.post(() -> scrollView.scrollTo(0, 0));
                     f4_editText1.selectAll();
                 }
             }
@@ -85,6 +93,7 @@ public class form4 extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
+                    scrollView.post(() -> scrollView.scrollTo(0, 0));
                     f4_editText2.selectAll();
                 }
             }
@@ -94,6 +103,7 @@ public class form4 extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
+                    scrollView.post(() -> scrollView.scrollTo(0, f4_editText3.getBottom()));
                     f4_editText3.selectAll();
                 }
             }
@@ -103,6 +113,7 @@ public class form4 extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
+                    scrollView.post(() -> scrollView.scrollTo(0, f4_editText4.getBottom()));
                     f4_editText4.selectAll();
                 }
             }
@@ -204,7 +215,6 @@ public class form4 extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     private void showProgressDialogWithCancelOption() {
