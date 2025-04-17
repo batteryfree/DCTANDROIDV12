@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        tools:context=".form4">
+        tools:context=".form5">
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -32,8 +32,8 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="46dp"
-            android:text="Надходження(Форма4)"
+            android:layout_height="49dp"
+            android:text="OK(Форма5)"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/f4_l1"
+            android:id="@+id/f5_l1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
         <EditText
-            android:id="@+id/f4_editText1"
+            android:id="@+id/f5_editText1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -64,58 +64,60 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l1" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_l1" />
 
         <TextView
-            android:id="@+id/f4_l2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/name_tov"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_editText1" />
-
-        <TextView
-            android:id="@+id/f4_l2_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/f5_l2_1"
+            android:layout_width="392dp"
+            android:layout_height="55dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text=""
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l2" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_editText1" />
 
         <TextView
-            android:id="@+id/f4_l3"
+            android:id="@+id/f5_l3_1"
+            android:layout_width="392dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/f5_l2_1" />
+
+        <TextView
+            android:id="@+id/f5_l4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="@string/count_tov_doc"
+            android:text="@string/worker"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l2_1" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_l3_1" />
 
-        <TextView
-            android:id="@+id/f4_l3_1"
+        <EditText
+            android:id="@+id/f5_editText2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="@string/zero"
+            android:hint="@string/bc"
+            android:inputType="text"
+            android:minHeight="48dp"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l3" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_l4" />
 
         <TextView
-            android:id="@+id/f4_l4"
+            android:id="@+id/f5_l5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -124,10 +126,10 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l3_1" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_editText2" />
 
         <EditText
-            android:id="@+id/f4_editText2"
+            android:id="@+id/f5_editText3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -138,59 +140,8 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l4" />
+            app:layout_constraintTop_toBottomOf="@+id/f5_l5" />
 
-        <TextView
-            android:id="@+id/f4_l5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/place"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_editText2" />
-
-        <EditText
-            android:id="@+id/f4_editText3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="@string/bc"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l5" />
-
-        <TextView
-            android:id="@+id/f4_l6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/exp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_editText3" />
-
-        <EditText
-            android:id="@+id/f4_editText4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="@string/bc"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_l6" />
         <Button
             android:id="@+id/button"
             style="@style/Widget.MaterialComponents.Button"
@@ -204,8 +155,9 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/f4_editText4"/>
+            app:layout_constraintTop_toBottomOf="@+id/f5_editText3"  />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -13,7 +13,7 @@
         android:layout_width="74dp"
         android:layout_height="74dp"
         android:layout_marginStart="10dp"
-        android:backgroundTint="#16331A"
+        android:backgroundTint="#89000000"
         android:contentDescription="@string/btn_dback"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -64,6 +64,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/f2_editText1" />
+
+<!--&lt;!&ndash;    <ImageButton&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/imageButton2"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="74dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="74dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="10dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:backgroundTint="#89000000"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:contentDescription="@string/btn_dback"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:focusable="false"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:focusableInTouchMode="false"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:onClick="startMenu1"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:srcCompat="@android:drawable/ic_menu_revert"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="ImageContrastCheck" />&ndash;&gt;-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/f2_l1"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:text="@string/bc_l"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/f2_editText1"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:autofillHints=""-->
+<!--        android:ems="10"-->
+<!--        android:hint="@string/bc"-->
+<!--        android:inputType="text"-->
+<!--        android:minHeight="48dp"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/f2_l1"-->
+<!--        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,VisualLintTextFieldSize" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/f2_l2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:importantForAutofill="no"-->
+<!--        android:text="@string/name_tov"-->
+<!--        android:textSize="20sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/f2_editText1" />-->
 
     <TextView
         android:id="@+id/f2_l2_1"
@@ -135,14 +192,29 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="227dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="108dp"
         android:text="Витрати(Форма2)"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#89000000"
+        android:onClick="Submit"
+        android:text="@string/submit_uc"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/f2_editText2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

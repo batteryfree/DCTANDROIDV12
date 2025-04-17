@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">DCTFESUKRv12</string>
-    <string name="btn_c_f12">Витрата</string>
-    <string name="btn_c_f7">Прихід/Інветарізація</string>
-    <string name="btn_c_m2">КПП</string>
-    <string name="btn_c_f5">Відділ якості</string>
+    <string name="btn_c_f12">Витрати</string>
+    <string name="btn_c_f7">Надходження/Інветарізація</string>
+    <string name="btn_c_m2">Контроль відвантаження</string>
+    <string name="btn_c_f5">Приймання продукції(ВЯ)</string>
     <string name="l1_nd">НОМЕР ДОКУМЕНТУ</string>
     <string name="l2_k">КОМІРНИК</string>
     <string name="bc">Введіть штрих-код</string>
@@ -27,4 +27,5 @@
     <string name="real">РЕАЛІЗАЦІЯ</string>
     <string name="contra">Контрагент</string>
     <string name="submit">Прийняти</string>
+    <string name="submit_uc">ПРИЙНЯТИ</string>
 </resources>

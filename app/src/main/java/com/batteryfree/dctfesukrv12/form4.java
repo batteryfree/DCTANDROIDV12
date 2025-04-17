@@ -1,5 +1,6 @@
 package com.batteryfree.dctfesukrv12;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class form4 extends AppCompatActivity {
     public JSONObject jsonOutput;
@@ -66,10 +68,7 @@ public class form4 extends AppCompatActivity {
         f4_editText2 = findViewById(R.id.f4_editText2);
         f4_editText3 = findViewById(R.id.f4_editText3);
         f4_editText4 = findViewById(R.id.f4_editText4);
-//        f4_editText1.setInputType(InputType.TYPE_NULL);
-//        f4_editText2.setInputType(InputType.TYPE_NULL);
-//        f4_editText3.setInputType(InputType.TYPE_NULL);
-//        f4_editText1.setInputType(InputType.TYPE_NULL);
+
         f4_editText1.setShowSoftInputOnFocus(false);
         f4_editText2.setShowSoftInputOnFocus(false);
         f4_editText3.setShowSoftInputOnFocus(false);
@@ -120,11 +119,13 @@ public class form4 extends AppCompatActivity {
         });
 
         f4_editText1.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f4_editText1.requestFocus();
                     f4_editText1.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -132,22 +133,27 @@ public class form4 extends AppCompatActivity {
         });
 
         f4_editText2.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f4_editText2.requestFocus();
                     f4_editText2.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
             }
         });
+
         f4_editText3.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f4_editText3.requestFocus();
                     f4_editText3.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -155,11 +161,13 @@ public class form4 extends AppCompatActivity {
         });
 
         f4_editText4.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f4_editText4.requestFocus();
                     f4_editText4.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -191,30 +199,48 @@ public class form4 extends AppCompatActivity {
             }
         });
 
-        f4_editText4.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
+//        f4_editText4.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
+//
+//            @Override
+//            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+//                if (keyEvent == null || (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+//                    if (isRequestInProgress) {
+//                        return true; // Предотвращаем повторный запрос
+//                    }
+//
+//                    try {
+//                        jsonOutput.put("operation", "Update");
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                    isRequestInProgress = true;
+//                    isRequestCancelled = false; // Сбрасываем флаг отмены
+//                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+//                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
+    }
 
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (keyEvent == null || (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    if (isRequestInProgress) {
-                        return true; // Предотвращаем повторный запрос
-                    }
+    public boolean Submit(View v) {
+        AtomicBoolean isRequestInProgress = new AtomicBoolean(false); // Флаг для предотвращения повторного запроса
+        if (isRequestInProgress.get()) {
+            return true; // Предотвращаем повторный запрос
+        }
 
-                    try {
-                        jsonOutput.put("operation", "Update");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    isRequestInProgress = true;
-                    isRequestCancelled = false; // Сбрасываем флаг отмены
-                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
-                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
-                    return true;
-                }
-                return false;
-            }
-        });
+        try {
+            jsonOutput.put("operation", "Update");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        isRequestInProgress.set(true);
+        isRequestCancelled = false; // Сбрасываем флаг отмены
+        showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+        sendPostRequest(() -> isRequestInProgress.set(false)); // Сбрасываем флаг после выполнения
+        return true;
     }
 
     private void showProgressDialogWithCancelOption() {
@@ -237,7 +263,7 @@ public class form4 extends AppCompatActivity {
     private void cancelRequest() {
         isRequestCancelled = true;
         dismissLoader();
-        showInfo("Запрос був відмінен користувачем.");
+        showInfo("Запит було скасовано користувачем.");
     }
 
     public void startMenu1(View v) {
@@ -409,5 +435,18 @@ public class form4 extends AppCompatActivity {
         intent.putExtra("URL", URL_1C);
         intent.putExtra("jsonOutput", jsonOutput.toString());
         startActivity(intent);
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onBackPressed() {
+        f4_editText1.setText("");
+        f4_editText2.setText("");
+        f4_editText3.setText("");
+        f4_editText4.setText("");
+        f4_l2_1.setText("");
+        f4_l3_1.setText("");
+        f4_editText1.requestFocus();
+        f4_editText1.selectAll();
     }
 }

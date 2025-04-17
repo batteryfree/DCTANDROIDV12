@@ -105,6 +105,7 @@ public class form7 extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f7_editText1.requestFocus();
                     f7_editText1.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -117,6 +118,7 @@ public class form7 extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f7_editText2.requestFocus();
                     f7_editText2.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -145,7 +147,7 @@ public class form7 extends AppCompatActivity {
     private void cancelRequest() {
         isRequestCancelled = true;
         dismissLoader();
-        showInfo("Запрос був відмінен користувачем.");
+        showInfo("Запит було скасовано користувачем.");
     }
 
     public void startMenu1(View v) {

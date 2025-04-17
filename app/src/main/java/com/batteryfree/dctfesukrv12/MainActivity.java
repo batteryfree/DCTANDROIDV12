@@ -1,6 +1,8 @@
 package com.batteryfree.dctfesukrv12;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -14,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
-    public String URL_1C = "http://192.168.23.206:8080/TSD/hs/terminal/api";
+    public String URL_1C; //= "http://192.168.23.206:8080/TSD/hs/terminal/api";
     public String serialNumberDevice;
     public JSONObject jsonOutput = new JSONObject();
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        URL_1C = prefs.getString("server_url", "http://192.168.23.206:8080/TSD/hs/terminal/api");
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -55,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startForm5(View v) {
+        Intent intent = new Intent(this, form5.class);
+        intent.putExtra("URL", URL_1C);
+        intent.putExtra("jsonOutput", jsonOutput.toString());
+        startActivity(intent);
+    }
+
+    public void startSettings(View v) {
+        Intent intent = new Intent(this, settings.class);
+        startActivity(intent);
+    }
+
     public void creteJSONData() {
         try {
             jsonOutput.put("numTSD", serialNumberDevice);
@@ -77,10 +95,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    @SuppressLint("MissingSuperCall")
     @Override
     public void onBackPressed() {
-        // Блокируем кнопку "Назад"
-        super.onBackPressed();
+
     }
 }

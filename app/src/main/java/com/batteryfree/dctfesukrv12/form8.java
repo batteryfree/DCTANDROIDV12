@@ -4,11 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -23,6 +21,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class form8 extends AppCompatActivity {
     public JSONObject jsonOutput;
@@ -61,24 +60,24 @@ public class form8 extends AppCompatActivity {
 //        f8_editText1.setInputType(InputType.TYPE_NULL);
 //        f8_editText2.setInputType(InputType.TYPE_NULL);
 
-        f8_editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
-
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (keyEvent == null || keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                    if (isRequestInProgress) {
-                        return true; // Если запрос уже отправляется, игнорируем повторный вызов
-                    }
-                    isRequestInProgress = true;
-                    isRequestCancelled = false; // Сбрасываем флаг отмены
-                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
-                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
-                    return true;
-                }
-                return false;
-            }
-        });
+//        f8_editText2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
+//
+//            @Override
+//            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+//                if (keyEvent == null || keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    if (isRequestInProgress) {
+//                        return true; // Если запрос уже отправляется, игнорируем повторный вызов
+//                    }
+//                    isRequestInProgress = true;
+//                    isRequestCancelled = false; // Сбрасываем флаг отмены
+//                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+//                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
 
         f8_editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -104,6 +103,7 @@ public class form8 extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f8_editText1.requestFocus();
                     f8_editText1.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
@@ -116,12 +116,27 @@ public class form8 extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f8_editText2.requestFocus();
                     f8_editText2.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
             }
         });
     }
+
+    public boolean Submit(View v) {
+        AtomicBoolean isRequestInProgress = new AtomicBoolean(false); // Флаг для предотвращения повторного запроса
+
+        if (isRequestInProgress.get()) {
+            return true; // Если запрос уже отправляется, игнорируем повторный вызов
+        }
+        isRequestInProgress.set(true);
+        isRequestCancelled = false; // Сбрасываем флаг отмены
+        showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+        sendPostRequest(() -> isRequestInProgress.set(false)); // Сбрасываем флаг после выполнения
+        return true;
+    }
+
 
     public void startMenu1(View v) {
         Intent intent = new Intent(this, MainActivity.class);
@@ -148,7 +163,7 @@ public class form8 extends AppCompatActivity {
     private void cancelRequest() {
         isRequestCancelled = true;
         dismissLoader();
-        showInfo("Запрос біл відмінен користувачем.");
+        showInfo("Запит було скасовано користувачем.");
     }
 
     public void showInfo(String text) {

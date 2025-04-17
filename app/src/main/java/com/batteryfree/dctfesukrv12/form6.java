@@ -24,6 +24,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class form6 extends AppCompatActivity {
     public JSONObject jsonOutput;
@@ -59,28 +60,28 @@ public class form6 extends AppCompatActivity {
         f6_editText1.requestFocus();
 //        f6_editText1.setInputType(InputType.TYPE_NULL);
 
-        f6_editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
-
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (keyEvent == null || keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                    if (isRequestInProgress) {
-                        return true; // Если запрос уже отправляется, игнорируем повторный вызов
-                    }
-                    try {
-                        jsonOutput.put("operation", "Update");
-                    } catch (JSONException e) {}
-
-                    isRequestInProgress = true;
-                    isRequestCancelled = false; // Сбрасываем флаг отмены
-                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
-                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
-                    return true;
-                }
-                return false;
-            }
-        });
+//        f6_editText1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            private boolean isRequestInProgress = false; // Флаг для предотвращения повторного запроса
+//
+//            @Override
+//            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+//                if (keyEvent == null || keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+//                    if (isRequestInProgress) {
+//                        return true; // Если запрос уже отправляется, игнорируем повторный вызов
+//                    }
+//                    try {
+//                        jsonOutput.put("operation", "Update");
+//                    } catch (JSONException e) {}
+//
+//                    isRequestInProgress = true;
+//                    isRequestCancelled = false; // Сбрасываем флаг отмены
+//                    showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+//                    sendPostRequest(() -> isRequestInProgress = false); // Сбрасываем флаг после выполнения
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
 
         f6_editText1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -97,11 +98,28 @@ public class form6 extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_UP && !v.hasFocus()) {
                     f6_editText1.requestFocus();
                     f6_editText1.selectAll();
+                    v.performClick();
                     return true;
                 }
                 return false;
             }
         });
+    }
+
+    public boolean Submit(View v) {
+        AtomicBoolean isRequestInProgress = new AtomicBoolean(false); // Флаг для предотвращения повторного запроса
+        if (isRequestInProgress.get()) {
+            return true; // Если запрос уже отправляется, игнорируем повторный вызов
+        }
+        try {
+            jsonOutput.put("operation", "Update");
+        } catch (JSONException e) {}
+
+        isRequestInProgress.set(true);
+        isRequestCancelled = false; // Сбрасываем флаг отмены
+        showProgressDialogWithCancelOption(); // Показываем прогресс-диалог
+        sendPostRequest(() -> isRequestInProgress.set(false)); // Сбрасываем флаг после выполнения
+        return true;
     }
 
     private void showProgressDialogWithCancelOption() {
@@ -124,7 +142,7 @@ public class form6 extends AppCompatActivity {
     private void cancelRequest() {
         isRequestCancelled = true;
         dismissLoader();
-        showInfo("Запрос був відмінен користувачем.");
+        showInfo("Запит було скасовано користувачем.");
     }
 
     public void startMenu1(View v) {
